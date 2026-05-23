@@ -1,0 +1,204 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700;800&family=Space+Mono&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* MatchAI Visual System — Refreshed
+   Dark navy canvas + vibrant purple gradient + glassmorphism */
+@layer base {
+  :root {
+    /* Light mode kept for system fallback only — app is dark by default */
+    --background: 220 20% 97%;
+    --foreground: 222 30% 10%;
+    --card: 0 0% 100%;
+    --card-foreground: 222 30% 10%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 30% 10%;
+    --primary: 258 90% 66%;
+    --primary-foreground: 0 0% 100%;
+    --primary-hover: 271 91% 65%;
+    --primary-pressed: 262 83% 58%;
+    --lavender-glow: 252 95% 85%;
+    --secondary: 220 20% 94%;
+    --secondary-foreground: 222 30% 10%;
+    --muted: 220 20% 94%;
+    --muted-foreground: 222 15% 40%;
+    --accent: 258 90% 66%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 220 15% 88%;
+    --input: 220 15% 88%;
+    --ring: 258 90% 66%;
+    --radius: 1rem;
+
+    --sidebar-background: 220 20% 97%;
+    --sidebar-foreground: 222 30% 10%;
+    --sidebar-primary: 258 90% 66%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 220 20% 94%;
+    --sidebar-accent-foreground: 222 30% 10%;
+    --sidebar-border: 220 15% 88%;
+    --sidebar-ring: 258 90% 66%;
+
+    --surface-1: 0 0% 100%;
+    --surface-2: 220 20% 96%;
+    --surface-3: 220 20% 92%;
+    --foreground-secondary: 222 15% 35%;
+    --foreground-disabled: 222 12% 55%;
+    --border-strong: 220 15% 75%;
+  }
+
+  .dark {
+    /* Dark navy canvas */
+    --background: 222 47% 4%;          /* #030712 */
+    --surface-1: 222 47% 8%;           /* #0B1120 — primary surface */
+    --surface-2: 223 40% 12%;          /* #111a2e — secondary surface */
+    --surface-3: 222 43% 18%;          /* #1a2542 — elevated surface */
+    --card: 222 47% 8%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222 47% 8%;
+    --popover-foreground: 210 40% 98%;
+
+    /* Text */
+    --foreground: 210 40% 98%;
+    --foreground-secondary: 217 25% 78%;
+    --muted-foreground: 217 18% 62%;
+    --foreground-disabled: 217 12% 48%;
+
+    /* Brand — vibrant purple gradient #8B5CF6 → #A855F7 */
+    --primary: 258 90% 66%;            /* #8B5CF6 */
+    --primary-foreground: 0 0% 100%;
+    --primary-hover: 271 91% 65%;      /* #A855F7 */
+    --primary-pressed: 262 83% 58%;    /* #7C3AED */
+    --indigo: 226 100% 68%;
+    --lavender-glow: 252 95% 85%;      /* #C4B5FD */
+
+    /* Surfaces / structure */
+    --secondary: 223 40% 12%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 222 43% 18%;
+    --accent: 258 90% 66%;
+    --accent-foreground: 0 0% 100%;
+
+    /* Utility */
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --success: 142 71% 45%;
+    --warning: 38 92% 50%;
+    --info: 199 89% 60%;
+
+    /* Borders */
+    --border: 222 32% 20%;
+    --border-strong: 222 25% 30%;
+    --input: 222 32% 20%;
+    --ring: 258 90% 66%;
+
+    --sidebar-background: 222 47% 4%;
+    --sidebar-foreground: 210 40% 98%;
+    --sidebar-primary: 258 90% 66%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 223 40% 12%;
+    --sidebar-accent-foreground: 210 40% 98%;
+    --sidebar-border: 222 32% 20%;
+    --sidebar-ring: 258 90% 66%;
+
+    --chart-1: 258 90% 66%;
+    --chart-2: 271 91% 65%;
+    --chart-3: 252 95% 85%;
+    --chart-4: 199 89% 60%;
+    --chart-5: 142 71% 45%;
+  }
+
+  /* Radii scale — 16px buttons/inputs, 24px cards */
+  :root {
+    --radius-btn: 1rem;          /* 16px */
+    --radius-input: 1rem;        /* 16px */
+    --radius-pill: 9999px;
+    --radius-card: 1.5rem;       /* 24px */
+    --radius-xl: 1.75rem;        /* 28px — auth/pricing */
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-feature-settings: 'cv11', 'ss01';
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Space Grotesk', sans-serif;
+    letter-spacing: -0.02em;
+    font-weight: 700;
+  }
+
+  h1 { font-weight: 800; }
+  small, .text-micro, .text-supporting { font-weight: 300; }
+}
+
+@layer utilities {
+  .gradient-text {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, #8B5CF6, #A855F7);
+  }
+
+  .gradient-primary {
+    background-image: linear-gradient(135deg, #8B5CF6, #A855F7);
+  }
+
+  .gradient-glow {
+    background-image: radial-gradient(circle at 50% 0%, hsl(var(--primary) / 0.22), transparent 60%);
+  }
+
+  .glass {
+    background-color: hsl(var(--surface-1) / 0.7);
+    backdrop-filter: blur(24px) saturate(140%);
+    -webkit-backdrop-filter: blur(24px) saturate(140%);
+    border: 1px solid hsl(var(--border) / 0.7);
+    box-shadow:
+      0 1px 2px hsl(var(--primary) / 0.06),
+      0 8px 24px -4px hsl(var(--primary) / 0.12);
+  }
+
+  .dark .glass {
+    background-color: hsl(var(--surface-1) / 0.6);
+    border-color: hsl(var(--border) / 0.6);
+    box-shadow:
+      0 1px 2px rgba(0, 0, 0, 0.4),
+      0 8px 24px -4px rgba(0, 0, 0, 0.5);
+  }
+
+  .shadow-depth {
+    box-shadow:
+      0 2px 8px hsl(var(--primary) / 0.10),
+      0 12px 32px -8px hsl(var(--primary) / 0.22),
+      0 24px 48px -12px hsl(var(--primary) / 0.18);
+  }
+
+  .dark .shadow-depth {
+    box-shadow:
+      0 1px 2px rgba(0, 0, 0, 0.4),
+      0 8px 24px -4px rgba(0, 0, 0, 0.5),
+      0 24px 48px -12px rgba(139, 92, 246, 0.18);
+  }
+
+  .surface-1 { background-color: hsl(var(--surface-1)); }
+  .surface-2 { background-color: hsl(var(--surface-2)); }
+  .surface-3 { background-color: hsl(var(--surface-3)); }
+
+  .text-secondary { color: hsl(var(--foreground-secondary)); }
+  .text-disabled { color: hsl(var(--foreground-disabled)); }
+
+  .border-strong { border-color: hsl(var(--border-strong)); }
+
+  .lavender-glow {
+    box-shadow: 0 0 60px -10px rgba(168, 85, 247, 0.35);
+  }
+}
